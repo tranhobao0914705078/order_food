@@ -1,9 +1,8 @@
 import { View, Text } from 'react-native'
 import React, { useState } from 'react'
-import { HeaderButton } from './HeaderButton/HeaderButton'
+import { HeaderButton } from '../HeaderButton/HeaderButton'
 
-export default function HeaderTabs() {
-    const [activeTab, setActiveTab] = useState("Delivery");
+export default function HeaderTabs(props) {
   return (
     <View
         style={{
@@ -14,17 +13,14 @@ export default function HeaderTabs() {
       {/* HeaderButton */}
       <HeaderButton 
         text="Delivery" 
-        activeTab={activeTab} 
-        setActiveTab={setActiveTab}
+        activeTab={props.activeTab} 
+        setActiveTab={props.setActiveTab}
         />
       <HeaderButton 
         text="Pickup" 
-        activeTab={activeTab} 
-        setActiveTab={setActiveTab}
+        activeTab={props.activeTab} 
+        setActiveTab={props.setActiveTab}
         />
     </View>
   )
 }
-
-// btnColor="white" 
-// textColor="black"  

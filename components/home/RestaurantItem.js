@@ -31,30 +31,67 @@ export const localRestaurants = [
       reviews: 700,
       rating: 4.9,
     },
+    {
+      name: "India's Grill",
+      image_url:
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
+      categories: ["Indian", "Bar"],
+      price: "$$",
+      reviews: 700,
+      rating: 4.9,
+    },
+    {
+      name: "India's Grill",
+      image_url:
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
+      categories: ["Indian", "Bar"],
+      price: "$$",
+      reviews: 700,
+      rating: 4.9,
+    },
+    {
+      name: "India's Grill",
+      image_url:
+        "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cmVzdGF1cmFudCUyMGludGVyaW9yfGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80",
+      categories: ["Indian", "Bar"],
+      price: "$$",
+      reviews: 700,
+      rating: 4.9,
+    },
 ];
 
-export default function RestaurantItem( props ) {
+export default function RestaurantItem({ navigation, ...props }) {
     return (
-      <TouchableOpacity
-        activeOpacity={1}
-        style={{
-            marginBottom: 30
-        }}
-      >
+      <>
         {props.data.map((restaurant, index) => (
-            <View
-                key={index}
-                style={{
-                    marginTop: 10,
-                    padding: 10,
-                    backgroundColor: '#f5f5f5'
-                }}
-            >
-                <RestaurantImage image={restaurant.image_url} />
-                <RestaurantInfo name={restaurant.name} rating={restaurant.rating} />
-            </View>
+          <TouchableOpacity
+            activeOpacity={1}
+            style={{
+                marginBottom: 30
+            }}
+            onPress={() => navigation.navigate("RestaurantDetail" , {
+              name: restaurant.name,
+              image: restaurant.image_url,
+              price: restaurant.price,
+              review_count: restaurant.review_count,
+              rating: restaurant.rating,
+              categories: restaurant.categories
+            })}
+            key={index}
+          >
+                <View
+                    style={{
+                        marginTop: 10,
+                        padding: 10,
+                        backgroundColor: '#f5f5f5'
+                    }}
+                >
+                    <RestaurantImage image={restaurant.image_url} />
+                    <RestaurantInfo name={restaurant.name} rating={restaurant.rating} />
+                </View>
+          </TouchableOpacity>
         ))}
-      </TouchableOpacity>
+      </>
     )
   }
   const RestaurantImage = (props) => (
